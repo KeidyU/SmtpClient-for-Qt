@@ -14,7 +14,7 @@ TARGET = SMTPEmail
 # Build as a library
 TEMPLATE = lib
 DEFINES += SMTP_BUILD
-win32:CONFIG += dll
+win32:CONFIG += static
 
 SOURCES += \
     src/emailaddress.cpp \
@@ -51,3 +51,9 @@ OTHER_FILES += \
     README.md
 
 FORMS +=
+
+CONFIG(debug,debug|release){
+  DESTDIR = ../aris-g/bin/Debug/lib
+} else {
+  DESTDIR = ../aris-g/bin/Release/lib
+}
